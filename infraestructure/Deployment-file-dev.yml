@@ -1,0 +1,45 @@
+template-file-path: ./CloudFormation-deploy-dev.yml
+
+parameters:
+  VPCId:
+    Type: AWS::EC2::VPC::Id
+    Description: The VPC id
+    Default: vpc-07c7a7c32948f1b7b ##Jac Dev
+  SubnetIdAZ1:
+    Type: AWS::EC2::Subnet::Id
+    Description: The Subnet id
+    Default: subnet-044196a07768234c7 ##Public Subnet AZa
+  SubnetIdAZ2:
+    Type: AWS::EC2::Subnet::Id
+    Description: The Subnet id
+    Default: subnet-0a872b06c6b508273 ##Public Subnet AZb
+  ClusterName:
+    Type: String
+    Default: ECS_JAC_CMS_DEV
+    Description: The name of the ECS cluster
+  TaskDefinitionName:
+    Type: String
+    Default: TASK_JAC_CMS_DEV
+    Description: The name of the ECS task definition
+  ContainerName:
+    Type: String
+    Default: CONTAINER_JAC_CMS_DEV
+    Description: The name of the container
+  ContainerPort:
+    Type: Number
+    Default: 80
+    Description: The port the container will listen on
+  ECRRepositoryName:
+    Type: String
+    Default: ECR_JAC_CMS_DEV
+    Description: The name of the ECR repository
+  ServiceName:
+    Type: String
+    Default: SERVICE_JAC_CMS_DEV
+    Description: The name of the ECS service
+
+tags:
+    owner: 'Andres Orozco'
+    customer: 'Giant Motors'
+    environmnet: 'Dev'
+    project: 'CMS'

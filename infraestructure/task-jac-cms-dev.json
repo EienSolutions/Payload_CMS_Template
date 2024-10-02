@@ -1,0 +1,88 @@
+{
+    "family": "task-jac-cms-dev",
+    "containerDefinitions": [
+        {
+            "name": "jac-cms-dev",
+            "image": "272772253521.dkr.ecr.us-east-1.amazonaws.com/ecr-jac-cms-dev:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "payload-3000-tcp",
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "entryPoint": [
+                "/bin/sh",
+                "-c"
+            ],
+            "command": [
+                "npm run serve"
+            ],
+            "environment": [],
+            "environmentFiles": [
+                {
+                    "value": "arn:aws:s3:::jac-wb-cms-env-files/develop/.env",
+                    "type": "s3"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "workingDirectory": "/home/node/app/",
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/task-jac-cms-dev",
+                    "awslogs-create-group": "true",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "healthCheck": {
+                "command": [
+                    "CMD-SHELL",
+                    "curl -f http://localhost:3000/ || exit 1"
+                ],
+                "interval": 30,
+                "timeout": 5,
+                "retries": 3,
+                "startPeriod": 30
+            },
+            "systemControls": []
+        }
+    ],
+    "taskRoleArn": "arn:aws:iam::272772253521:role/ROLE-ECS-GM-CMS-DEV",
+    "executionRoleArn": "arn:aws:iam::272772253521:role/ROLE-ECS-GM-CMS-DEV",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "tags": [
+        {
+            "key": "owner",
+            "value": "Andres Orozco"
+        },
+        {
+            "key": "name",
+            "value": "task-jac-cms-dev"
+        },
+        {
+            "key": "project",
+            "value": "cms"
+        },
+        {
+            "key": "environment",
+            "value": "dev"
+        }
+    ]
+}
