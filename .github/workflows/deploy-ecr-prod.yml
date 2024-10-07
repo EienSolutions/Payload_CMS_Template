@@ -7,7 +7,7 @@ on:
     # paths:
 
 env:
-  ENVIRONMENT: main
+  environment: Production
   ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY_DREAMFIELDS_CMS_PROD}} # set this to your Amazon ECR repository name
   ECS_CLUSTER: ${{vars.ECS_CLUSTER_PROD}}              # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: ${{vars.ECS_TASK_DEFINITION_PROD}} # set this to the path to your Amazon ECS task definition
@@ -31,7 +31,7 @@ jobs:
 
   build:
     runs-on: ubuntu-22.04
-    environment: main
+    environment: Production
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -69,7 +69,7 @@ jobs:
   deploy:
     needs: [build]
     runs-on: ubuntu-22.04
-    environment: main
+    environment: Production
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
