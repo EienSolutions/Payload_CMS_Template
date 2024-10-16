@@ -1,9 +1,9 @@
 {
-    "family": "task-jac-cms-dev",
+    "family": "ecr-dreamfields-cms-prod",
     "containerDefinitions": [
         {
-            "name": "jac-cms-dev",
-            "image": "272772253521.dkr.ecr.us-east-1.amazonaws.com/ecr-jac-cms-dev:latest",
+            "name": "ecr-dreamfields-cms-prod",
+            "image": "623234699902.dkr.ecr.us-east-1.amazonaws.com/ecr-dreamfields-cms-prod:latest",
             "cpu": 0,
             "portMappings": [
                 {
@@ -25,7 +25,7 @@
             "environment": [],
             "environmentFiles": [
                 {
-                    "value": "arn:aws:s3:::jac-wb-cms-env-files/develop/.env",
+                    "value": "arn:aws:s3:::s3://env-cms/Prod/.env",
                     "type": "s3"
                 }
             ],
@@ -35,7 +35,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/task-jac-cms-dev",
+                    "awslogs-group": "/ecs/Task-dreamfields-cms-prod",
                     "awslogs-create-group": "true",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
@@ -55,8 +55,8 @@
             "systemControls": []
         }
     ],
-    "taskRoleArn": "arn:aws:iam::272772253521:role/ROLE-ECS-GM-CMS-DEV",
-    "executionRoleArn": "arn:aws:iam::272772253521:role/ROLE-ECS-GM-CMS-DEV",
+    "taskRoleArn": "arn:aws:iam::272772253521:role/Role-CMS-ECS-Prod",
+    "executionRoleArn": "arn:aws:iam::272772253521:role/Role-CMS-ECS-Prod",
     "networkMode": "awsvpc",
     "requiresCompatibilities": [
         "FARGATE"
