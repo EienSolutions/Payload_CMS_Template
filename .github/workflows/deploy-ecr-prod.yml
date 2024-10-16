@@ -85,7 +85,7 @@ jobs:
         id: ecs-update-task-definition
         run: |
           aws ecs register-task-definition \
-            --cli-input-json file://infraestructure/task-jac-cms-dev.json
+            --cli-input-json file://infraestructure/task-dreamfields-cms-prod.json
       - name: Update service
         id: ecs-deploy-service
         run: |
