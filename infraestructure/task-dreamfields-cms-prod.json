@@ -2,7 +2,7 @@
     "family": "ecr-dreamfields-cms-prod",
     "containerDefinitions": [
         {
-            "name": "ecr-dreamfields-cms-prod",
+            "name": "Task-dreamfields-cms-prod",
             "image": "623234699902.dkr.ecr.us-east-1.amazonaws.com/ecr-dreamfields-cms-prod:latest",
             "cpu": 0,
             "portMappings": [
