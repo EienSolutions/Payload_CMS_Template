@@ -8,8 +8,8 @@
             "portMappings": [
                 {
                     "name": "payload-3000-tcp",
-                    "containerPort": 3000,
-                    "hostPort": 3000,
+                    "containerPort": 1337,
+                    "hostPort": 1337,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
@@ -45,7 +45,7 @@
             "healthCheck": {
                 "command": [
                     "CMD-SHELL",
-                    "curl -f http://localhost:3000/ || exit 1"
+                    "curl -f http://localhost:1337/ || exit 1"
                 ],
                 "interval": 30,
                 "timeout": 5,
