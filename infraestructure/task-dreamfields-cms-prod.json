@@ -55,8 +55,8 @@
             "systemControls": []
         }
     ],
-    "taskRoleArn": "arn:aws:iam::272772253521:role/Role-CMS-ECS-Prod",
-    "executionRoleArn": "arn:aws:iam::272772253521:role/Role-CMS-ECS-Prod",
+    "taskRoleArn": "arn:aws:iam::623234699902:role/Role-CMS-ECS-Prod",
+    "executionRoleArn": "arn:aws:iam::623234699902:role/Role-CMS-ECS-Prod",
     "networkMode": "awsvpc",
     "requiresCompatibilities": [
         "FARGATE"
