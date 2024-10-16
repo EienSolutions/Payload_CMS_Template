@@ -5,7 +5,7 @@ RUN apk add --no-cache tzdata
 FROM base as builder
 
 WORKDIR /home/node/app
-COPY package*.json ./ 
+COPY package*.json ./
 
 COPY . .
 RUN yarn install
@@ -20,6 +20,7 @@ ENV TZ=America/Mexico_City
 WORKDIR /home/node/app
 COPY package*.json  ./
 COPY yarn.lock ./
+COPY global-bundle.pem ./
 
 RUN yarn install --production
 COPY --from=builder /home/node/app/dist ./dist

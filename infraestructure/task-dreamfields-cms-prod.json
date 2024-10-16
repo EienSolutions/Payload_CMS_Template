@@ -25,7 +25,7 @@
             "environment": [],
             "environmentFiles": [
                 {
-                    "value": "arn:aws:s3:::s3://env-cms/Prod/.env",
+                    "value": "arn:aws:s3:::env-cms/Prod/.env",
                     "type": "s3"
                 }
             ],
